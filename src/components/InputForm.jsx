@@ -11,14 +11,14 @@ handleChange(event) {
   this.setState({value: event.target.value});
 }
   render() {
-console.log(this.state);
+console.log(this.state.value);
 // console.log(this.state)
     return (
       <Form>
         <FormGroup className="input">
             <Label>Amount:</Label>
             <Input type="number" name="number" id="" placeholder="Add Your Currency!"
-            onChange={this.handleChange} value={this.state.countries } />
+            onChange={this.handleChange} value={this.state.countries} />
         </FormGroup>
 
           <FormGroup className="currency">
@@ -33,7 +33,7 @@ console.log(this.state);
           </FormGroup>
 
           <FormGroup>
-             <Button onClick={this.handleChange} value={this.state.countries}>⇆</Button>
+             <Button onClick={this.handleChange}>⇆</Button>
          </FormGroup>
 
           <FormGroup className="input">
