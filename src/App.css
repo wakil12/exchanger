@@ -1,0 +1,40 @@
+
+@import url('https://fonts.googleapis.com/css?family=Kumar+One+Outline');
+body{
+    -webkit-transform: scale(0.9);
+}
+.header {
+  font-family: 'Kumar One Outline';
+  font-size: 70px;
+  text-transform: uppercase;
+}
+.btn, label {
+  font-family: 'Noto Serif', serif;
+}
+
+.display, Form {
+  display: flex;
+}
+.input {
+  width: 40%;
+  margin: 10px;
+}
+.currency {
+  width: 40%;
+  margin: 10px;
+}
+
+.btn-secondary {
+    margin-bottom: -95px;
+}
+
+ /* .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+} */
+ /* .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+} */
