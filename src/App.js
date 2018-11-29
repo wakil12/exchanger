@@ -13,12 +13,11 @@ class App extends Component {
     constructor(){
       super();
       this.state = {
-        exchangeRate: 1,
-        countries: (null)
+        countries: [],
       };
     }
     componentDidMount() {
-      fetch(`https://free.currencyconverterapi.com/api/v6/countries`)
+      fetch(`/currencies`)
         .then((response) => {
           return response.json();
         })
@@ -27,17 +26,20 @@ class App extends Component {
           this.setState({
             countries:resultsData
           });
-          console.log(resultsData[0].name);
 
         });
       }
+
+
     render() {
-      return <div>
-          <Header />
-          <InputForm countries={this.state.countries} />
-          <CartView />
-          <Footer />
-        </div>;
+      return (
+        <div>
+            <Header />
+            <InputForm countries={this.state.countries} />
+            <CartView />
+            <Footer />
+      </div>
+      )
   }
 }
 
