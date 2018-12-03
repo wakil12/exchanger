@@ -23,18 +23,7 @@ body{
   width: 40%;
   margin: 10px;
 }
-
-/* .btn-secondary {
-    margin-bottom: -95px;
-} */
-
- /* .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-} */
- /* .header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-} */
+.button {
+  margin-bottom: 52px;
+  margin-top: 41px;
+}

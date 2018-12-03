@@ -11,13 +11,12 @@ export default class InputForm extends React.Component {
         to: 'AFN',
       },
       rate: 0
-    };
-  }
-
+    }
+  };
   componentDidMount(){
     this.setRate();
   }
-
+  resultInput = React.createRef();
   setFrom = event => {
     this.setState({
       currency: {
@@ -41,13 +40,16 @@ export default class InputForm extends React.Component {
       amount: event.target.value
     })
   }
+  flip = event => {
 
-  setExchnage = event => {
     this.setState({
-      from: event.target.value
-    })
+      currency: {
+        from: this.state.currency.to,
+        to: this.state.currency.from
+      },
+      amount: this.resultInput.current.props.value
+    },this.setRate)
   }
-
   setRate = () => {
     const exchangeString = `${this.state.currency.from}_${this.state.currency.to}`;
     return fetch(`/convert?q=${exchangeString}&compact=ultra`)
@@ -58,7 +60,6 @@ export default class InputForm extends React.Component {
         })
       })
   }
-
   render() {
     return (
       <Form>
@@ -91,18 +92,17 @@ export default class InputForm extends React.Component {
             </CustomInput>
         </FormGroup>
 
-        <ButtonGroup className="">
-          <Button
-            value={this.state.from}
-            onChange={this.setExchnage}>⇄</Button>
+        <ButtonGroup className="button">
+            <Button
+            onClick={this.flip}>⇄</Button>
         </ButtonGroup>
-
 
         <FormGroup className="input">
             <Label>Amount:</Label>
             <Input
               type="number"
               name="number"
+              ref={this.resultInput}
               value={(this.state.amount * this.state.rate).toFixed(2)}
               disabled />
         </FormGroup>
