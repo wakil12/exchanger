@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FormGroup, Label, CustomInput, Input } from 'reactstrap';
+import { Form, FormGroup, Label, CustomInput, Input, ButtonGroup, Button } from 'reactstrap';
 
 export default class InputForm extends React.Component {
   constructor(props) {
@@ -41,9 +41,10 @@ export default class InputForm extends React.Component {
       amount: event.target.value
     })
   }
-  setChange = event => {
+
+  setExchnage = event => {
     this.setState({
-      change: event.target.value
+      from: event.target.value
     })
   }
 
@@ -90,11 +91,12 @@ export default class InputForm extends React.Component {
             </CustomInput>
         </FormGroup>
 
-        {/* <ButtonGroup className="">
+        <ButtonGroup className="">
           <Button
-            value={this.state.change}
-            onChange={this.setChange}>⇄</Button>
-        </ButtonGroup> */}
+            value={this.state.from}
+            onChange={this.setExchnage}>⇄</Button>
+        </ButtonGroup>
+
 
         <FormGroup className="input">
             <Label>Amount:</Label>
