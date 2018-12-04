@@ -1,12 +1,16 @@
 import React from 'react';
 import { Card, CardHeader } from 'reactstrap';
 
-const Header = (props) => {
-  return (
-    <Card>
-        <CardHeader className="header text-center text-dark">ExchangeR</CardHeader>
-    </Card>
-  );
-};
+
+
+class Header extends React.Component {
+  render() {
+    return (
+      <Card className="image">
+          <CardHeader className="header text-center">Currency exchanger</CardHeader>
+      </Card>
+    );
+  }
+}
 
 export default Header;

@@ -34,3 +34,7 @@ input.form-control.form-control {
     background: inherit;
     color: black;
 }
+.image {
+  background-image: url("currency.jpg");
+  color: tomato;
+}
