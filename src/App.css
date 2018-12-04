@@ -24,6 +24,13 @@ body{
   margin: 10px;
 }
 .button {
-  margin-bottom: 52px;
+  margin-bottom: 49px;
   margin-top: 42px;
+}
+input.form-control.form-control {
+    background: inherit;
+}
+.btn-group>.btn:first-child {
+    background: inherit;
+    color: black;
 }

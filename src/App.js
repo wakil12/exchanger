@@ -9,7 +9,6 @@ import './App.css';
 
 
 class App extends Component {
-
     constructor(){
       super();
       this.state = {
@@ -36,7 +35,7 @@ class App extends Component {
         <div>
             <Header />
             <InputForm countries={this.state.countries} />
-            <CartView countries={this.state.countries } />
+            <CartView />
             <Footer />
       </div>
       )
