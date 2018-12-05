@@ -50,6 +50,8 @@ export default class InputForm extends React.Component {
       amount: this.resultInput.current.props.value
     },this.setRate)
   }
+
+
   setRate = () => {
     const exchangeString = `${this.state.currency.from}_${this.state.currency.to}`;
     return fetch(`/convert?q=${exchangeString}&compact=ultra`)

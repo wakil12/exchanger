@@ -13,6 +13,7 @@ class App extends Component {
       super();
       this.state = {
         countries: [],
+        photos: [],
       };
     }
     componentDidMount() {
@@ -35,7 +36,7 @@ class App extends Component {
         <div>
             <Header />
             <InputForm countries={this.state.countries} />
-            <CartView />
+            <CartView photos={this.state.photos} />
             <Footer />
       </div>
       )

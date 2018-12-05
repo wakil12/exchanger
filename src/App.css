@@ -36,5 +36,6 @@ input.form-control.form-control {
 }
 .image {
   background-image: url("currency.jpg");
-  color: tomato;
+  color: black;
+  background-size: cover;
 }
