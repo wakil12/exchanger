@@ -4,31 +4,46 @@ import { Card, CardTitle, Row, Col } from 'reactstrap';
 
 
 class CartView extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      photos: 'photos',
-      Country: {
-        from: 'Afghanistan',
-        to: 'USA',
-      },
-    };
+
+
+
+  setFromPhoto(){
+    const fromLocation = this.state.currencies[this.props.currency.from]
+
+   this.service.findPlaceFromQuery({
+      query: fromLocation[0].name,
+      fields: ["photos"]
+    },
+    result => {
+      this.setState({
+        photos: {
+          ...this.state.photos,
+          from: result[0].photos[0].getUrl()
+        }
+      },this.setToPhoto)
+    });
   }
-  componentDidMount() {
-    fetch('https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference=CmRaAAAAmVT2FE7KbINT7MlEO4MK-HKw1Dp3NjPSBdRIZJLTLEL7hqaKTLtG6ZylfYzbozn3EnucnyQUv1N-SMoUpT-1DIIJDi07aIbnQ-FjxrCG9YPXyJFjp2tHXyCEvc5xb-6pEhCIXKMu_zMCh4ZmHWaQ3rL_GhS5Bj_miQpM0zDn8LJaiaZJLsFz0A&key=AIzaSyDoD6y7f5LzczqagbtcsyTVPPDphiriDxU')
-      .then((response) => {
-        return response.json();
 
+  setToPhoto(){
+    const toLocation = this.state.currencies[this.props.currency.to]
+
+   this.service.findPlaceFromQuery({
+      query: toLocation[0].name,
+      fields: ["photos"]
+    },
+    result => {
+      this.setState({
+        photos: {
+          ...this.state.photos,
+          to: result[0].photos[0].getUrl()
+        }
       })
-      .then((data) => {
-        const resultsData = Object.values(data.results)
+    });
 
-        this.setState({
-          photos:resultsData
-        });
+  }
 
-      });
-    }
+
+
   render () {
     return (
     <Row>
@@ -36,14 +51,15 @@ class CartView extends React.Component {
         <Card body>
           <CardTitle className="btn border border-secondary"></CardTitle>
           {/* <CardText className="btn border border-secondary">Name of Country:</CardText> */}
-             <img className="mt" width="100%"  src="https://s3.amazonaws.com/dsg.files.app.content.prod/gereports/wp-content/uploads/2016/01/29161435/Nice2.jpg" alt="" />
+             <img className="mt" width="100%"  src={this.props.currency.from.photo} alt="" />
         </Card>
       </Col>
       <Col>
         <Card body>
           <CardTitle className="btn border border-secondary"></CardTitle>
           {/* <CardText className="btn border border-secondary">Name of Country:</CardText> */}
-           <img className="mt" width="100%" src="https://s3.amazonaws.com/dsg.files.app.content.prod/gereports/wp-content/uploads/2016/01/29161435/Nice2.jpg" alt="" />
+           <img className="mt" width="100%" src={this.props.currency.to.photo} alt="" />
+
         </Card>
       </Col>
     </Row>

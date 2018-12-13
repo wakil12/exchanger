@@ -11,6 +11,7 @@
     "reactstrap": "^6.5.0"
   },
   "proxy": "https://free.currencyconverterapi.com/api/v6",
+
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
